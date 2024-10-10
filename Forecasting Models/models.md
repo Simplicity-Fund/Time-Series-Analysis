@@ -5,7 +5,9 @@ The AutoRegressive (AR) model assumes that the future value of a time series dep
 
 Equation:
 
-$ Y_t = c + φ_1Y_{t-1} + φ_2Y_{t-2} + \dots + φ_pY_{t-p} + ε_t $
+$$
+Y_t = c + φ_1Y_{t-1} + φ_2Y_{t-2} + \dots + φ_pY_{t-p} + ε_t
+&&
 
 - $Y_t$ : current value at time t
 - c : constant term

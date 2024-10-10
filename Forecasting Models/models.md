@@ -67,3 +67,44 @@ For time series with clear **seasonality**, ARIMA needs to be extended to accoun
 - **p, d, q**: Regular ARIMA terms (non-seasonal part)
 - **P, D, Q**: Seasonal terms for AR, differencing, and MA
 - **s**: Seasonal period (e.g., 12 for monthly data with yearly seasonality)
+
+## Evaluating Forecasting Models
+
+Once you have fitted your models, you can evaluate their performance using a variety of techniques and metrics to understand how well the model forecasts. Here's a comprehensive approach to evaluating the forecasting models:
+
+### **In-sample Evaluation**:
+
+In-sample evaluation assesses the model's performance on the training data (i.e., the data used to fit the model). While this can give you some insight into how well the model captures patterns, it's generally better to focus on out-of-sample evaluation to avoid overfitting.
+
+**Metrics for In-sample Evaluation:**
+
+- **Log-likelihood**: This is a likelihood function indicating how likely it is to observe the training data under the given model.
+- **AIC (Akaike Information Criterion)**: A metric that balances model fit with model complexity. Lower AIC values indicate better models.
+- **BIC (Bayesian Information Criterion)**: Similar to AIC but penalizes complexity more heavily.
+
+### **Out-of-sample Evaluation (on Test Data)**:
+
+This is the most critical evaluation step. It measures how well the model forecasts future data (or unseen data).
+
+**Steps for Out-of-sample Evaluation:**
+
+1. **Generate Forecasts**: Use the fitted model to forecast values beyond the training set.
+2. **Compare Forecasts to Actual Values**: Compare the predicted values with the actual values from the test set.
+
+**Metrics for Forecast Evaluation:**
+
+- **Mean Absolute Error (MAE)**: Average of the absolute errors between actual and predicted values.
+- **Mean Squared Error (MSE)**: Average of the squared errors between actual and predicted values.
+- **Root Mean Squared Error (RMSE)**: Square root of MSE, which penalizes larger errors more heavily.
+- **Mean Absolute Percentage Error (MAPE)**: Average percentage difference between predicted and actual values.
+
+### **Residual Analysis**:
+
+Analyzing the residuals (the difference between actual and predicted values) is crucial to check if the model has captured the patterns in the data adequately.
+
+- **Plot the Residuals**: Residuals should ideally behave like white noise (uncorrelated and normally distributed with a mean of zero). You can plot them using:
+- **Check for Autocorrelation**: You can check if the residuals are autocorrelated by plotting the **ACF (Autocorrelation Function)**.
+    
+    If the residuals are autocorrelated, it may indicate that the model has not fully captured the time-dependent structure of the data.
+    
+- **Q-Q Plot**: A quantile-quantile plot helps assess if the residuals are normally distributed.
